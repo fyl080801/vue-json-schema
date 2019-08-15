@@ -1,0 +1,24 @@
+{
+  "root": true,
+  "extends": ["standard", "prettier", "prettier/standard"],
+  "plugins": ["prettier", "standard"],
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "none"
+      }
+    ],
+    "no-plusplus": [
+      "error",
+      {
+        "allowForLoopAfterthoughts": true
+      }
+    ]
+  }
+}
