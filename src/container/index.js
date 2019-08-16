@@ -1,4 +1,4 @@
-import vjsContainerMixin from '../mixins/container'
+import vjsContainerMixin from './mixins'
 
 const VueFormJsonSchema = {
   name: 'json-schema-container',

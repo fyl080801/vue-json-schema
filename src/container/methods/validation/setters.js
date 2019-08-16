@@ -3,7 +3,7 @@ import {
   EVENT_FIELD_STATE_UPDATE,
   EVENT_MODEL_VALIDATE,
   EVENT_UI_FIELDS_UPDATE
-} from '../../../../constants'
+} from '../../../constants'
 
 const vjsValidationSetters = {
   setVjsValidationErrors() {

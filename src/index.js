@@ -1,7 +1,7 @@
 import vjsField from './field'
-import vjsFieldMixin from './mixins/field'
-import vjsContainerMixin from './mixins/container'
+import vjsFieldMixin from './field/mixins'
 import vjsContainer from './container'
+import vjsContainerMixin from './container/mixins'
 import vjsPlugin from './plugin'
 
 export { vjsField, vjsFieldMixin, vjsContainer, vjsContainerMixin, vjsPlugin }

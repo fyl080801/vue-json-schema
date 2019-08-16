@@ -1,7 +1,7 @@
 import Ajv from 'ajv'
 import getters from './getters'
 import setters from './setters'
-import { EVENT_MODEL_VALIDATE } from '../../../../constants'
+import { EVENT_MODEL_VALIDATE } from '../../../constants'
 
 const vjsValidation = {
   vjsValidationInitialize() {

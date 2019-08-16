@@ -1,18 +1,13 @@
 import { merge } from 'lodash'
 
-// Elements which supports the 'value' attribute
 const attrsValueElements = ['input', 'option', 'textarea']
 
-// Elements which should have its DOM property 'value' updated
 const domPropsValueElements = ['input', 'textarea']
 
-// Elements which should have its DOM property 'checked' updated
 const domPropsCheckedElements = ['checkbox', 'radio']
 
-// Elements which has their value within the tags
 const innerHTMLElements = ['textarea']
 
-// Elements which supports the 'required' attribute
 const requiredElements = ['input', 'select', 'textarea']
 
 const computed = {
@@ -35,7 +30,7 @@ const computed = {
   },
   vjsComputedFieldAttrs() {
     const attrs = {
-      // id: this.vjsFieldId, // This is very useful when debugging to see when nodes are updated
+      // id: this.vjsFieldId, // debug
     }
 
     if (requiredElements.indexOf(this.vjsComponent) !== -1) {

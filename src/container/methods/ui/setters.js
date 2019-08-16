@@ -1,5 +1,5 @@
 import { cloneDeep, isEqual } from 'lodash'
-import { EVENT_STATE_UPDATED } from '../../../../constants'
+import { EVENT_STATE_UPDATED } from '../../../constants'
 
 const vjsUiSetters = {
   setVjsUiSchema(uiSchema = []) {

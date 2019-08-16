@@ -2,7 +2,7 @@ import { isEqual } from 'lodash'
 import {
   EVENT_FIELD_STATE_UPDATE,
   EVENT_STATE_UPDATED
-} from '../../../../constants'
+} from '../../../constants'
 
 const vjsStateSetters = {
   setVjsFieldState(value, key) {

@@ -1,4 +1,4 @@
-import vjsFieldMixin from '../mixins/field'
+import vjsFieldMixin from './mixins'
 
 const VueFormJsonSchemaFieldComponent = {
   name: 'json-schema-field',

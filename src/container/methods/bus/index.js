@@ -13,7 +13,7 @@ import {
   EXTERNAL_EVENT_CHANGE,
   EXTERNAL_EVENT_STATE_CHANGE,
   EXTERNAL_EVENT_VALIDATED
-} from '../../../../constants'
+} from '../../../constants'
 
 const vjsBus = {
   addVjsListener(event, callback) {

@@ -1,6 +1,6 @@
 import computed from './computed'
 import data from './data'
-import methods from './methods'
+import methods from '../methods'
 import props from './props'
 import watch from './watch'
 import { EXTERNAL_MODEL_PROP, EXTERNAL_EVENT_CHANGE } from '../../constants'

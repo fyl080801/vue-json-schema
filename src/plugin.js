@@ -1,4 +1,4 @@
-import vjsContainerComponent from './mixins/container'
+import vjsContainerComponent from './container/mixins'
 
 export function install(
   Vue,

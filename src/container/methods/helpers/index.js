@@ -1,5 +1,5 @@
 import { set, cloneDeep } from 'lodash'
-import vjsFieldComponent from '../../../../field'
+import vjsFieldComponent from '../../../field'
 
 const vjsHelpers = {
   vjsHelperCreateField(vjsFieldUiSchema) {

@@ -1,4 +1,4 @@
-import { EVENT_UI_FIELDS_UPDATE } from '../../../constants'
+import { EVENT_UI_FIELDS_UPDATE } from '../../constants'
 
 const helpers = {
   vjsFieldHelperAddListener(el, event) {

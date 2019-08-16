@@ -1,5 +1,5 @@
 import computed from './computed'
-import methods from './methods'
+import methods from '../methods'
 import props from './props'
 
 const vjsFieldMixin = {

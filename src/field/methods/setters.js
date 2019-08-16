@@ -1,7 +1,7 @@
 import {
   EVENT_FIELD_MODEL_UPDATE,
   EVENT_FIELD_STATE_UPDATE
-} from '../../../constants'
+} from '../../constants'
 
 const setters = {
   setState(value) {
