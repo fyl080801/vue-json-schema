@@ -1,5 +1,3 @@
-import { callbackify } from 'util'
-
 export const toInt = val => {
   return parseInt(val.toString())
 }
@@ -13,7 +11,8 @@ export default (val, type) => {
     case 'number':
       return toInt(val)
     case 'string':
-    default:
       return toStr(val)
+    default:
+      return val
   }
 }
