@@ -5,3 +5,5 @@ _book
 COMMIT_MSG
 # Built files
 dist
+
+package-lock.json
