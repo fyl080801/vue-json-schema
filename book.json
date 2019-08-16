@@ -1,17 +1,9 @@
 {
-  "title": "vue-form-json-schema",
+  "title": "vue-json-schema",
   "root": "./docs",
   "gitbook": ">3.0.0",
   "plugins": ["edit-link", "github"],
-  "pluginsConfig": {
-    "edit-link": {
-      "base": "https://github.com/jarvelov/vue-form-json-schema/edit/master/docs",
-      "label": "Edit This Page"
-    },
-    "github": {
-      "url": "https://github.com/jarvelov/vue-form-json-schema/"
-    }
-  },
+  "pluginsConfig": {},
   "links": {
     "sharing": {
       "facebook": false,

@@ -1,5 +1,6 @@
 import { set, cloneDeep } from 'lodash'
 import vjsFieldComponent from '../../../field'
+import converter from '../../../utils/converter'
 
 const vjsHelpers = {
   vjsHelperCreateField(vjsFieldUiSchema) {
@@ -101,32 +102,22 @@ const vjsHelpers = {
     return array.join('')
   },
   vjsHelperCreateComponent({ children = [], component, props }) {
-    const localComponent = this.vjsComponents[component]
-
-    const mergedProps = !props.vjsFieldModelKey
-      ? {
-          key: props.vjsFieldId,
-          ...props.vjsFieldOptions
-        }
-      : {
-          key: `${props.vjsFieldId}-wrapper`,
-          props: {
-            ...props,
-            vjsComponent: localComponent || component
-          }
-        }
-
-    if (mergedProps.props && mergedProps.props.props) {
-      const { props: componentProps } = mergedProps.props
-      Object.keys(componentProps).forEach((key, idx) => {
+    // 处理绑定的属性
+    // 这里先实现fieldOptions里定义的props属性的转换
+    if (props.vjsFieldOptions && props.vjsFieldOptions.props) {
+      const { props: componentProps } = props.vjsFieldOptions
+      Object.keys(componentProps).forEach(key => {
         if (componentProps[key] && componentProps[key].bindType) {
-          // 这里先暂时定义一个可绑定的属性的简单实现
-          // 将来要通过工厂方法返回对应字段，以及针对不同绑方式的绑定
+          // 绑定model的情况
           if (componentProps[key].bindType === 'model') {
-            const bindkey = componentProps[key].value
+            const { targetType, value } = componentProps[key]
+            // 利用defineProperty方法特性
             Object.defineProperty(componentProps, key, {
               get: () => {
-                return this.getVjsFieldModel(bindkey)
+                const modelValue = this.getVjsFieldModel(value)
+                return targetType && modelValue != null
+                  ? converter(modelValue, targetType)
+                  : modelValue
               }
             })
           }
@@ -134,15 +125,28 @@ const vjsHelpers = {
       })
     }
 
-    if (!props.vjsFieldModelKey) {
-      return this.$createElement(
-        localComponent || component,
-        mergedProps,
-        children
-      )
-    }
+    const localComponent = this.vjsComponents[component]
 
-    return this.$createElement(vjsFieldComponent, mergedProps, children)
+    return !props.vjsFieldModelKey
+      ? this.$createElement(
+          localComponent || component,
+          {
+            key: props.vjsFieldId,
+            ...props.vjsFieldOptions
+          },
+          children
+        )
+      : this.$createElement(
+          vjsFieldComponent,
+          {
+            key: `${props.vjsFieldId}-wrapper`,
+            props: {
+              ...props,
+              vjsComponent: localComponent || component
+            }
+          },
+          children
+        )
   },
   vjsHelperApplyFieldModel(key, value) {
     const newVjsModel = cloneDeep(this.getVjsModel())
