@@ -102,6 +102,11 @@ const vjsHelpers = {
     return array.join('')
   },
   vjsHelperCreateComponent({ children = [], component, props }) {
+    const localComponent = this.vjsComponents[component]
+
+    // 触发一个事件，供组件外部操作属性的值
+    this.$emit('componentCreating', localComponent, props.vjsFieldOptions)
+
     // 处理绑定的属性
     // 这里先实现fieldOptions里定义的props属性的转换
     if (props.vjsFieldOptions && props.vjsFieldOptions.props) {
@@ -124,8 +129,6 @@ const vjsHelpers = {
         }
       })
     }
-
-    const localComponent = this.vjsComponents[component]
 
     return !props.vjsFieldModelKey
       ? this.$createElement(

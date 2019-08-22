@@ -98,6 +98,7 @@ const vjsUiGetters = {
       .map(this.getVjsUiFieldsActive)
   },
   getVjsUiField({ children = [], model, ...field }) {
+    // 这里判断两个条件来确定是否显示这个组件
     if (
       this.getVjsUiFieldVisible({ ...field, model }) &&
       this.getFieldCondition({ ...field, model })
