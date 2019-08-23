@@ -14,7 +14,6 @@ const vjsModelSetters = {
   setVjsModel(model, silent = false) {
     if (!isEqual(model, this.vjsModel)) {
       this.vjsModel = cloneDeep(model)
-
       if (!silent) {
         this.vjsBus.emit(EVENT_MODEL_UPDATED, this.getVjsModel())
       }

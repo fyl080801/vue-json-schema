@@ -174,7 +174,7 @@ const vjsHelpers = {
     return {
       ...field,
       id,
-      children: children.map((child, i) =>
+      children: (children || []).map((child, i) =>
         this.vjsHelperGenerateField(child, (i + 1) * (level + 1))
       )
     }

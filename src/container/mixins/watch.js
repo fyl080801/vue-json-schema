@@ -4,20 +4,29 @@ const watch = {
   components(value) {
     this.vjsComponents = Object.assign({}, value)
   },
-  model(value) {
-    this.$emit('modelChanging')
-    this.setVjsModel(value)
-    this.$emit('modelChanged')
+  model: {
+    handler: function(value) {
+      this.$emit('modelChanging')
+      this.setVjsModel(value)
+      this.$emit('modelChanged', this.vjsModel)
+    },
+    deep: true
   },
-  schema(value) {
-    this.$emit('schemaChanging')
-    this.setVjsSchema(value)
-    this.$emit('schemaChanged')
+  schema: {
+    handler: function(value) {
+      this.$emit('schemaChanging')
+      this.setVjsSchema(value)
+      this.$emit('schemaChanged')
+    },
+    deep: true
   },
-  uiSchema(value) {
-    this.$emit('uiChanging')
-    this.setVjsUiSchema(value)
-    this.$emit('uiChanged')
+  uiSchema: {
+    handler: function(value) {
+      this.$emit('uiChanging')
+      this.setVjsUiSchema(value)
+      this.$emit('uiChanged')
+    },
+    deep: true
   },
   options(value) {
     this.$emit('optionChanging')
