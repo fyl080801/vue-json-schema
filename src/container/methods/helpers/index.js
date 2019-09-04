@@ -156,12 +156,6 @@ const vjsHelpers = {
     set(newVjsModel, key, value)
     return newVjsModel
   },
-  // The level param helps us to differentiate further between fields.
-  // As the same field configuration may be present throughout the ui schema
-  // and thus have the same hash.
-  //
-  // We mediate this by providing the depth level as a second param
-  // which will make the hash unique for every field
   vjsHelperGenerateField(field, level = 0) {
     if (!field) {
       return false
