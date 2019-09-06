@@ -1,6 +1,6 @@
 import { set, cloneDeep } from 'lodash'
 import vjsFieldComponent from '../../../field'
-import converter from '../../../utils/converter'
+// import converter from '../../../utils/converter'
 
 const vjsHelpers = {
   vjsHelperCreateField(vjsFieldUiSchema) {
@@ -107,28 +107,29 @@ const vjsHelpers = {
     // 触发一个事件，供组件外部操作属性的值
     this.$emit('componentCreating', localComponent, props.vjsFieldOptions)
 
-    // 处理绑定的属性
-    // 这里先实现fieldOptions里定义的props属性的转换
-    if (props.vjsFieldOptions && props.vjsFieldOptions.props) {
-      const { props: componentProps } = props.vjsFieldOptions
-      Object.keys(componentProps).forEach(key => {
-        if (componentProps[key] && componentProps[key].bindType) {
-          // 绑定model的情况
-          if (componentProps[key].bindType === 'model') {
-            const { targetType, value } = componentProps[key]
-            // 利用defineProperty方法特性
-            Object.defineProperty(componentProps, key, {
-              get: () => {
-                const modelValue = this.getVjsFieldModel(value)
-                return targetType && modelValue != null
-                  ? converter(modelValue, targetType)
-                  : modelValue
-              }
-            })
-          }
-        }
-      })
-    }
+    // ------------------------放到外层封装组件里处理-------------------------
+    // // 处理绑定的属性
+    // // 这里先实现fieldOptions里定义的props属性的转换
+    // if (props.vjsFieldOptions && props.vjsFieldOptions.props) {
+    //   const { props: componentProps } = props.vjsFieldOptions
+    //   Object.keys(componentProps).forEach(key => {
+    //     if (componentProps[key] && componentProps[key].bindType) {
+    //       // 绑定model的情况
+    //       if (componentProps[key].bindType === 'model') {
+    //         const { targetType, value } = componentProps[key]
+    //         // 利用defineProperty方法特性
+    //         Object.defineProperty(componentProps, key, {
+    //           get: () => {
+    //             const modelValue = this.getVjsFieldModel(value)
+    //             return targetType && modelValue != null
+    //               ? converter(modelValue, targetType)
+    //               : modelValue
+    //           }
+    //         })
+    //       }
+    //     }
+    //   })
+    // }
 
     return !props.vjsFieldModelKey
       ? this.$createElement(
