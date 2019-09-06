@@ -105,7 +105,12 @@ const vjsHelpers = {
     const localComponent = this.vjsComponents[component]
 
     // 触发一个事件，供组件外部操作属性的值
-    this.$emit('componentCreating', localComponent, props.vjsFieldOptions)
+    this.$emit(
+      'componentCreating',
+      localComponent,
+      props.vjsFieldOptions, // props
+      props // def
+    )
 
     // ------------------------放到外层封装组件里处理-------------------------
     // // 处理绑定的属性
