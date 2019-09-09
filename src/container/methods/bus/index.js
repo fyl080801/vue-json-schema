@@ -1,5 +1,5 @@
 import Minibus from 'minibus'
-import { isEqual, set } from 'lodash'
+import { isEqual, set } from 'lodash-es'
 import {
   EVENT_FIELD_MODEL_CLEAR_HIDDEN,
   EVENT_FIELD_MODEL_UPDATE,

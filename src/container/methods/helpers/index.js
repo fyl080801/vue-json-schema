@@ -1,4 +1,4 @@
-import { set, cloneDeep } from 'lodash'
+import { set, cloneDeep } from 'lodash-es'
 import vjsFieldComponent from '../../../field'
 // import converter from '../../../utils/converter'
 

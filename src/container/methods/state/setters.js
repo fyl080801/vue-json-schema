@@ -1,4 +1,4 @@
-import { isEqual } from 'lodash'
+import { isEqual } from 'lodash-es'
 import {
   EVENT_FIELD_STATE_UPDATE,
   EVENT_STATE_UPDATED

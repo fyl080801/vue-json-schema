@@ -1,4 +1,4 @@
-import { cloneDeep, isEqual } from 'lodash'
+import { cloneDeep, isEqual } from 'lodash-es'
 import {
   EVENT_FIELD_MODEL_UPDATE,
   EVENT_MODEL_UPDATED

@@ -1,4 +1,4 @@
-import { cloneDeep, isEqual } from 'lodash'
+import { cloneDeep, isEqual } from 'lodash-es'
 import { EVENT_STATE_UPDATED } from '../../../constants'
 
 const vjsUiSetters = {
