@@ -1,6 +1,5 @@
 import { set, cloneDeep } from 'lodash-es'
 import vjsFieldComponent from '../../../field'
-// import converter from '../../../utils/converter'
 
 const vjsHelpers = {
   vjsHelperCreateField(vjsFieldUiSchema) {
@@ -107,7 +106,6 @@ const vjsHelpers = {
     // 触发一个事件，供组件外部操作属性的值
     this.$emit(
       'componentCreating',
-      localComponent,
       props.vjsFieldOptions, // props
       props // def
     )
@@ -166,6 +164,8 @@ const vjsHelpers = {
     if (!field) {
       return false
     }
+
+    this.$emit('componentGenerating', field)
 
     const { children = [], ...fieldWithoutChildren } = field
     const objString = JSON.stringify({ fieldWithoutChildren, level })

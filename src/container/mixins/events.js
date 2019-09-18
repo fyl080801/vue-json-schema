@@ -3,6 +3,10 @@ const events = {
     type: Function,
     default: () => ({})
   },
+  onComponentGenerating: {
+    type: Function,
+    default: () => ({})
+  },
   onInit: {
     type: Function,
     default: () => ({})
