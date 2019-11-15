@@ -113,7 +113,6 @@ const vjsBus = {
                 vjsFieldErrors: errors
               }
             )
-
             this.setVjsFieldState(newFieldState, key)
 
             if (

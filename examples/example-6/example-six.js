@@ -23,7 +23,7 @@ const template = `
     </p>
 
     <form @submit="onSubmit" novalidate>
-      <vue-form-json-schema
+      <vue-json-schema
         :model="model"
         :schema="schema"
         :ui-schema="uiSchema"
@@ -32,7 +32,7 @@ const template = `
         v-on:state-change="onChangeState"
         v-on:validated="onValidated"
       >
-      </vue-form-json-schema>
+      </vue-json-schema>
 
       <div class="form-group">
         <button type="submit" class="btn btn-primary">

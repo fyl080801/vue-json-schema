@@ -3,8 +3,6 @@ const vjsLifecycle = {
     this.vjsEvents.forEach(event => this.removeVjsListener(event))
   },
   vjsInitialize() {
-    this.$emit('init')
-
     this.setVjsSchema(this.schema)
 
     this.vjsOptions = {

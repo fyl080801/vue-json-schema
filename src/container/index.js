@@ -1,6 +1,6 @@
 import vjsContainerMixin from './mixins'
 
-const VueFormJsonSchema = {
+const VueJsonSchema = {
   name: 'json-schema-container',
   mixins: [vjsContainerMixin],
   render() {
@@ -8,4 +8,4 @@ const VueFormJsonSchema = {
   }
 }
 
-export default VueFormJsonSchema
+export default VueJsonSchema

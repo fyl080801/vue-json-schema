@@ -22,6 +22,7 @@ const vjsHelpers = {
     const vjsFieldSchemas = this.schemas
     const vjsFieldModel = this.getVjsFieldModel(vjsFieldModelKey)
     const vjsFieldState = this.getVjsFieldState(vjsFieldModelKey) || {}
+
     const vjsModel = this.getVjsModel()
     const vjsState = this.getVjsState()
 
