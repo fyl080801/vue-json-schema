@@ -42,8 +42,9 @@ const vjsHelpers = {
     const props = {
       ...vjsFieldOptions,
       vjsBus: this.vjsBus,
-      vjsChildren,
       vjsChildrenUiSchema: children,
+      vjsOptions: this.vjsOptions,
+      vjsChildren,
       vjsFieldErrorHandler,
       vjsFieldErrorOptions,
       vjsFieldErrors,
@@ -57,7 +58,6 @@ const vjsHelpers = {
       vjsFieldState,
       vjsFieldUiSchema,
       vjsFieldValueProp,
-      vjsOptions: this.vjsOptions,
       vjsModel,
       vjsState
     }
@@ -107,30 +107,6 @@ const vjsHelpers = {
   vjsHelperCreateComponent({ children = [], component, props }) {
     const localComponent = this.vjsComponents[component]
 
-    // ------------------------放到外层封装组件里处理-------------------------
-    // // 处理绑定的属性
-    // // 这里先实现fieldOptions里定义的props属性的转换
-    // if (props.vjsFieldOptions && props.vjsFieldOptions.props) {
-    //   const { props: componentProps } = props.vjsFieldOptions
-    //   Object.keys(componentProps).forEach(key => {
-    //     if (componentProps[key] && componentProps[key].bindType) {
-    //       // 绑定model的情况
-    //       if (componentProps[key].bindType === 'model') {
-    //         const { targetType, value } = componentProps[key]
-    //         // 利用defineProperty方法特性
-    //         Object.defineProperty(componentProps, key, {
-    //           get: () => {
-    //             const modelValue = this.getVjsFieldModel(value)
-    //             return targetType && modelValue != null
-    //               ? converter(modelValue, targetType)
-    //               : modelValue
-    //           }
-    //         })
-    //       }
-    //     }
-    //   })
-    // }
-
     return !props.vjsFieldModelKey
       ? this.$createElement(
           localComponent || component,
@@ -143,7 +119,7 @@ const vjsHelpers = {
       : this.$createElement(
           vjsFieldComponent,
           {
-            key: `${props.vjsFieldId}-wrapper`,
+            key: `${props.key || props.vjsFieldId}-wrapper`,
             props: {
               ...props,
               vjsComponent: localComponent || component
